@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using TheSchizoGamblers.Data;
+
 namespace TheSchizoGamblers
 {
     public class Program
@@ -8,6 +11,10 @@ namespace TheSchizoGamblers
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<GamblersContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("GamblersConnectionString"));
+            });
 
             var app = builder.Build();
 

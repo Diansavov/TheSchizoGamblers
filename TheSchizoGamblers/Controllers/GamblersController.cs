@@ -7,8 +7,7 @@ namespace TheSchizoGamblers.Controllers
     {
         public IActionResult Gamblers()
         {
-            GamblersModel gamblersModel = new GamblersModel("Gunter");
-            return View(gamblersModel);
+            return View();
         }
     }
 }
