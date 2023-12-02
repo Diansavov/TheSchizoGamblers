@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TheSchizoGamblers.Data;
+using TheSchizoGamblers.Models;
 
 namespace TheSchizoGamblers
 {
@@ -15,6 +17,9 @@ namespace TheSchizoGamblers
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("GamblersConnectionString"));
             });
+
+            builder.Services.AddDefaultIdentity<GamblersModel>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<GamblersContext>();
+            builder.Services.AddIdentity<GamblersModel, IdentityRole>().AddEntityFrameworkStores<GamblersContext>();
 
             var app = builder.Build();
 

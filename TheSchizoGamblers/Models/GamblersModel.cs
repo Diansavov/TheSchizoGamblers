@@ -1,12 +1,9 @@
-﻿namespace TheSchizoGamblers.Models
-{
-    public class GamblersModel
-    {
-        public Guid ID { get; set; }
-        public string Username { get; set; }
+﻿using Microsoft.AspNetCore.Identity;
 
-        public string Email { get; set; }
-        public string Password { get; set; }
+namespace TheSchizoGamblers.Models
+{
+    public class GamblersModel : IdentityUser
+    {
         public DateTime DateOfBirth { get; set; }
     }
 }

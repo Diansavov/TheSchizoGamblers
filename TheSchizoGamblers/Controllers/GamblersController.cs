@@ -23,15 +23,22 @@ namespace TheSchizoGamblers.Controllers
         [HttpPost]
         public async Task<IActionResult> Gamblers(GamblersViewModel addGamblerRequest)
         {
-            GamblersModel gambler = new GamblersModel()
-            {
-                ID = Guid.NewGuid(),
-                Username = addGamblerRequest.Username,
-                Email = addGamblerRequest.Email,
-                Password = addGamblerRequest.Password,
-                DateOfBirth = addGamblerRequest.DateOfBirth
-            };
-            await gamblersContext.Gamblers.AddAsync(gambler);
+            //if (ModelState.IsValid)
+            //{
+            //    GamblersModel gambler = new GamblersModel()
+            //    {
+                    
+            //    };
+            //}
+            //GamblersModel gambler = new GamblersModel()
+            //{
+            //    ID = Guid.NewGuid(),
+            //    Username = addGamblerRequest.Username,
+            //    Email = addGamblerRequest.Email,
+            //    Password = addGamblerRequest.Password,
+            //    DateOfBirth = addGamblerRequest.DateOfBirth
+            //};
+            //await gamblersContext.Gamblers.AddAsync(gambler);
             await gamblersContext.SaveChangesAsync();
 
             return RedirectToAction("Index");
