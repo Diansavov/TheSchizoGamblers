@@ -1,0 +1,22 @@
+﻿@model TheSchizoGamblers.Models.ViewModels.LogInViewModel
+
+
+@{
+    ViewData["Title"] = "LogIn";
+}
+
+<div class="fromating">
+    <form asp-action="LogIn">
+        <div class="mb-3">
+            <label for="" class="form-label">Username</label>
+            <input type="text" class="form-control" asp-for="Username">
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Password</label>
+            <input type="password" class="form-control" asp-for="Password">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

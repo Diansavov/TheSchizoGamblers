@@ -5,7 +5,8 @@
 }
 
 <h1 style="text-align:center">Register</h1>
-<form method="post" action="Gamblers" class="fromating">
+<div class="fromating">
+<form asp-action="Gamblers">
     <div class="mb-3">
         <label for="" class="form-label">Username</label>
         <input type="text" class="form-control" asp-for="Username">
@@ -25,3 +26,4 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+</div>

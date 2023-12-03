@@ -46,6 +46,37 @@ namespace TheSchizoGamblers.Controllers
 
             return View(addGamblerRequest);
         }
+        [HttpGet]
+        public IActionResult LogIn()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LogIn(LogInViewModel addLogInRequest)
+        {
+
+            var user = await _userManager.FindByNameAsync(addLogInRequest.Username);
+
+            if (user != null)
+            {
+                var passwordCheck = await _userManager.CheckPasswordAsync(user, addLogInRequest.Password);
+
+                if (passwordCheck)
+                {
+                    var result = await _signInManager.PasswordSignInAsync(user, addLogInRequest.Password, false, false);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+                TempData["Error"] = "The password or username doesn't match.";
+                return View(addLogInRequest);
+            }
+            TempData["Error"] = "The password or username doesn't match.";
+            return View(addLogInRequest);
+
+        }
     }
 
 }
