@@ -19,7 +19,7 @@ namespace TheSchizoGamblers
             });
 
             builder.Services.AddDefaultIdentity<GamblersModel>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<GamblersContext>();
-            builder.Services.AddIdentity<GamblersModel, IdentityRole>().AddEntityFrameworkStores<GamblersContext>();
+            //builder.Services.AddIdentity<GamblersModel, IdentityRole>().AddEntityFrameworkStores<GamblersContext>();
 
             var app = builder.Build();
 
