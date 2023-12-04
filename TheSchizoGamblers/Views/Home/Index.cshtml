@@ -1,5 +1,13 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<GamblersModel> _userManager
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <h1>Welcome</h1>
+
+@if (User.IsInRole("User"))
+{
+        <p>Hi</p>
+}

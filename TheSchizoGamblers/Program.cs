@@ -18,7 +18,7 @@ namespace TheSchizoGamblers
                 options.UseSqlServer(builder.Configuration.GetConnectionString("GamblersConnectionString"));
             });
 
-            builder.Services.AddDefaultIdentity<GamblersModel>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<GamblersContext>();
+            builder.Services.AddDefaultIdentity<GamblersModel>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>().AddEntityFrameworkStores<GamblersContext>();
             //builder.Services.AddIdentity<GamblersModel, IdentityRole>().AddEntityFrameworkStores<GamblersContext>();
 
             var app = builder.Build();
