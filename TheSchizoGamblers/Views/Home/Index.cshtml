@@ -9,5 +9,5 @@
 
 @if (User.IsInRole("User"))
 {
-        <p>Hi</p>
+        <p>Hi. @_userManager.GetUserName(User)</p>
 }

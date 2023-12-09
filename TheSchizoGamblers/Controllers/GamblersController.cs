@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp;
 using TheSchizoGamblers.Data;
 using TheSchizoGamblers.Models;
 using TheSchizoGamblers.Models.ViewModels;
@@ -77,6 +78,13 @@ namespace TheSchizoGamblers.Controllers
             TempData["Error"] = "The password or username doesn't match.";
             return View(addLogInRequest);
 
+        }
+        [HttpGet]
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 
