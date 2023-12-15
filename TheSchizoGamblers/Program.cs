@@ -20,6 +20,11 @@ namespace TheSchizoGamblers
 
             builder.Services.AddDefaultIdentity<GamblersModel>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>().AddEntityFrameworkStores<GamblersContext>();
 
+            builder.Services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireNonAlphanumeric = false;
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
