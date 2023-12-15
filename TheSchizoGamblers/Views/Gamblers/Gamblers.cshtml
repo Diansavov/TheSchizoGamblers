@@ -6,24 +6,28 @@
 
 <h1 style="text-align:center">Register</h1>
 <div class="fromating">
-<form asp-action="Gamblers">
-    <div class="mb-3">
-        <label for="" class="form-label">Username</label>
-        <input type="text" class="form-control" asp-for="Username">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Email</label>
-        <input type="email" class="form-control" asp-for="Email">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Password</label>
-        <input type="password" class="form-control" asp-for="Password">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Date Of Birth</label>
-        <input type="date" class="form-control" asp-for="DateOfBirth">
-    </div>
+    <form asp-action="Gamblers">
+        <div class="mb-3">
+            <label for="" class="form-label">Username</label>
+            <input type="text" class="form-control" asp-for="Username">
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Email</label>
+            <input type="email" class="form-control" asp-for="Email">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Password</label>
+            <input type="password" class="form-control" asp-for="Password">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Date Of Birth</label>
+            <input type="date" class="form-control" asp-for="DateOfBirth">
+            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+        </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </div>

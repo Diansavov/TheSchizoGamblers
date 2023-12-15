@@ -23,7 +23,7 @@ namespace TheSchizoGamblers.Controllers
             this.gamblersContext = gamblersContext;
             this._userManager = userManager;
             this._signInManager = signInManager;
-            _roleManager = roleManager;
+            this._roleManager = roleManager;
         }
 
         [HttpGet]
@@ -40,20 +40,25 @@ namespace TheSchizoGamblers.Controllers
                 await _roleManager.CreateAsync(new IdentityRole("User"));
                 await _roleManager.CreateAsync(new IdentityRole("Admin"));
             }
-            GamblersModel user = new GamblersModel()
-            {
-                UserName = addGamblerRequest.Username,
-                Email = addGamblerRequest.Email,
-                DateOfBirth = addGamblerRequest.DateOfBirth
-            };
-            var result = await _userManager.CreateAsync(user, addGamblerRequest.Password);
 
-            if (result.Succeeded)
+            if (ModelState.IsValid)
             {
-                await _userManager.AddToRoleAsync(user, "User");
-                await _signInManager.SignInAsync(user, isPersistent: false);
 
-                return RedirectToAction("Index", "Home");
+                GamblersModel user = new GamblersModel()
+                {
+                    UserName = addGamblerRequest.Username,
+                    Email = addGamblerRequest.Email,
+                    DateOfBirth = addGamblerRequest.DateOfBirth
+                };
+                var result = await _userManager.CreateAsync(user, addGamblerRequest.Password);
+
+                if (result.Succeeded)
+                {
+                    await _userManager.AddToRoleAsync(user, "User");
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+
+                    return RedirectToAction("Index", "Home");
+                }
             }
 
             return View(addGamblerRequest);
@@ -67,25 +72,29 @@ namespace TheSchizoGamblers.Controllers
         [HttpPost]
         public async Task<IActionResult> LogIn(LogInViewModel addLogInRequest)
         {
-
-            var user = await _userManager.FindByNameAsync(addLogInRequest.Username);
-
-            if (user != null)
+            if (ModelState.IsValid)
             {
-                var passwordCheck = await _userManager.CheckPasswordAsync(user, addLogInRequest.Password);
 
-                if (passwordCheck)
+                var user = await _userManager.FindByNameAsync(addLogInRequest.Username);
+
+                if (user != null)
                 {
-                    var result = await _signInManager.PasswordSignInAsync(user, addLogInRequest.Password, false, false);
-                    if (result.Succeeded)
+                    var passwordCheck = await _userManager.CheckPasswordAsync(user, addLogInRequest.Password);
+
+                    if (passwordCheck)
                     {
-                        return RedirectToAction("Index", "Home");
+                        var result = await _signInManager.PasswordSignInAsync(user, addLogInRequest.Password, false, false);
+                        if (result.Succeeded)
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
                     }
+                    TempData["Error"] = "The password or username doesn't match.";
+                    return View(addLogInRequest);
                 }
                 TempData["Error"] = "The password or username doesn't match.";
-                return View(addLogInRequest);
             }
-            TempData["Error"] = "The password or username doesn't match.";
+
             return View(addLogInRequest);
 
         }
