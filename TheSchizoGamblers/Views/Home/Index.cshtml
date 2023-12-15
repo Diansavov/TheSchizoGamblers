@@ -7,7 +7,7 @@
 
 <h1>Welcome</h1>
 
-@if (User.IsInRole("User"))
+@if(User.Identity.IsAuthenticated)
 {
-        <p>Hi. @_userManager.GetUserName(User)</p>
+        <p>Welcome, @_userManager.GetUserName(User)</p>
 }

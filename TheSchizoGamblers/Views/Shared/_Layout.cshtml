@@ -26,16 +26,16 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
+                    <form class="d-flex gap-2">
                         @if (!User.IsInRole("User"))
                         {
                             <button class="btn btn-outline-success" asp-area="" asp-controller="Gamblers" asp-action="LogIn" type="submit">Log In</button>
+                            <button class="btn btn-success" asp-area="" asp-controller="Gamblers" asp-action="Gamblers" type="submit">Register</button>
                         }
                         else
                         {
-                            <button class="btn btn-outline-success" asp-area="" asp-controller="Gamblers" asp-action="LogOut" type="submit">Log Out</button>
+                            <a asp-area="" asp-controller="Gamblers" asp-action="LogOut" type="submit">Log Out</a>
                         }
-                        <button class="btn btn-outline-success" asp-area="" asp-controller="Gamblers" asp-action="Gamblers" type="submit">Register</button>
                     </form>
                 </div>
             </div>

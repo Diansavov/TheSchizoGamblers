@@ -13,12 +13,17 @@ namespace TheSchizoGamblers.Controllers
         private readonly GamblersContext gamblersContext;
         private readonly UserManager<GamblersModel> _userManager;
         private readonly SignInManager<GamblersModel> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public GamblersController(GamblersContext gamblersContext, UserManager<GamblersModel> userManager, SignInManager<GamblersModel> signInManager)
+        public GamblersController(GamblersContext gamblersContext,
+            UserManager<GamblersModel> userManager,
+            SignInManager<GamblersModel> signInManager,
+            RoleManager<IdentityRole> roleManager)
         {
             this.gamblersContext = gamblersContext;
             this._userManager = userManager;
             this._signInManager = signInManager;
+            _roleManager = roleManager;
         }
 
         [HttpGet]
@@ -30,6 +35,11 @@ namespace TheSchizoGamblers.Controllers
         [HttpPost]
         public async Task<IActionResult> Gamblers(GamblersViewModel addGamblerRequest)
         {
+            if (!await _roleManager.RoleExistsAsync("User"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole("User"));
+                await _roleManager.CreateAsync(new IdentityRole("Admin"));
+            }
             GamblersModel user = new GamblersModel()
             {
                 UserName = addGamblerRequest.Username,
