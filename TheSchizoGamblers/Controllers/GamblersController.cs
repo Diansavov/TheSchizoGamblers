@@ -106,6 +106,4 @@ namespace TheSchizoGamblers.Controllers
             return RedirectToAction("Index", "Home");
         }
     }
-
 }
-

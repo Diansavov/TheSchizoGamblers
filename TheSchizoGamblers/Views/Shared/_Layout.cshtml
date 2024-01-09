@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow">
             <div class="container-fluid">
                 <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">TheSchizoGamblers</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -27,7 +27,7 @@
                         </li>
                     </ul>
                     <form class="d-flex gap-2">
-                        @if (!User.IsInRole("User"))
+                        @if (!User.Identity.IsAuthenticated)
                         {
                             <button class="btn btn-outline-success" asp-area="" asp-controller="Gamblers" asp-action="LogIn" type="submit">Log In</button>
                             <button class="btn btn-success" asp-area="" asp-controller="Gamblers" asp-action="Gamblers" type="submit">Register</button>
@@ -41,7 +41,7 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
