@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using TheSchizoGamblers.Data;
 using TheSchizoGamblers.Models;
 
@@ -13,10 +15,17 @@ namespace TheSchizoGamblers
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<GamblersContext>(options =>
+            
+            /*builder.Services.AddDbContext<GamblersContext>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("GamblersConnectionString"));
-            });
+            });*/
+ 
+            var connectionString = "server=localhost;User Id=DianDatabase;Password=123456789DianDatabase;database=GamblerUsers;";
+            var serverVersion = new MySqlServerVersion(new Version(10, 0, 1));
+
+            builder.Services.AddDbContext<GamblersContext>(options =>
+             options.UseMySql(connectionString, serverVersion));
 
             builder.Services.AddDefaultIdentity<GamblersModel>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>().AddEntityFrameworkStores<GamblersContext>();
 
