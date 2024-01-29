@@ -15,12 +15,9 @@ namespace TheSchizoGamblers
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
- 
-            var connectionString = builder.Configuration.GetConnectionString("GamblersConnectionString");
-            MySqlServerVersion serverVersion = new MySqlServerVersion(new Version(10, 0, 1));
 
             builder.Services.AddDbContext<GamblersContext>(options =>
-             options.UseMySql(connectionString, serverVersion));
+             options.UseMySql(builder.Configuration.GetConnectionString("GamblersConnectionString"), new MySqlServerVersion(new Version(10, 0, 1))));
 
             builder.Services.AddDefaultIdentity<GamblersModel>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>().AddEntityFrameworkStores<GamblersContext>();
 

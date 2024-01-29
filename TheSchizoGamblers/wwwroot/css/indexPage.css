@@ -9,10 +9,10 @@ img {
     max-width: 100%;
     height: auto;
 }
-body{
-
-}
+.carousel-caption h5, .carousel-caption p {
+    font-weight: bold;
+} 
 
 .carousel-item img {
-    height: 900px;
+    height: 750px;
 }
