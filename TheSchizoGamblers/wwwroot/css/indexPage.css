@@ -16,3 +16,10 @@ img {
 .carousel-item img {
     height: 750px;
 }
+.games-text{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 40px;
+    color: rgb(240, 240, 240);
+}
