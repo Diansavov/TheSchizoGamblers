@@ -66,22 +66,23 @@
     <div class="games-text">
         <p>Check out all our games!</p>
     </div>
-
-    <div id="cards" class="cards-container">
-        @for (int i = 0; i < 8; i++)
-        {
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-image">
-                        <img src="~/images/cardImages/Slot.jpg">
-                    </div>
-                    <div class="card-text">
-                        <h3>Slots</h3>
-                        <p>Wanna play the slots</p>
+    <div class="cards-container">
+        <div id="cards">
+            @for (int i = 0; i < 8; i++)
+            {
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-image">
+                            <img src="~/images/cardImages/Slot.jpg">
+                        </div>
+                        <div class="card-text">
+                            <h3>Slots</h3>
+                            <p>Wanna play the slots</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
 
     <script src="~/js/cardsGlow.js"></script>
