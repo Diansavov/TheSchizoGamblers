@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+    <!--Carousel-->
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
 
@@ -66,21 +66,24 @@
     <div class="games-text">
         <p>Check out all our games!</p>
     </div>
+    <!--Cards-->
     <div class="cards-container">
         <div id="cards">
             @for (int i = 0; i < 8; i++)
             {
-                <div class="card">
+                <a class="card" asp-controller="Gamblers" asp-action="LogIn">
                     <div class="card-content">
                         <div class="card-image">
                             <img src="~/images/cardImages/Slot.jpg">
                         </div>
                         <div class="card-text">
-                            <h3>Slots</h3>
-                            <p>Wanna play the slots</p>
+                            <h3>Wanna play the slots</h3>
+                            <form>
+                                <button class="btn btn-success" asp-area="" asp-controller="Gamblers" asp-action="LogIn" type="submit">Play Now!</button>
+                            </form>
                         </div>
                     </div>
-                </div>
+                </a>
             }
         </div>
     </div>

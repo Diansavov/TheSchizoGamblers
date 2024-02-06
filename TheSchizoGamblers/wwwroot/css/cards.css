@@ -109,6 +109,7 @@
     color: rgb(255, 255, 255);
     font-family: "Rubik", sans-serif;
     font-weight: 400;
+    font-size: 25px;
   }
 .card-text:hover{
     opacity: 1;
