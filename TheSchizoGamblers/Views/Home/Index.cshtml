@@ -71,7 +71,7 @@
         <div id="cards">
             @for (int i = 0; i < 8; i++)
             {
-                <a class="card" asp-controller="Gamblers" asp-action="LogIn">
+                <a class="card" asp-controller="Games" asp-action="Slots">
                     <div class="card-content">
                         <div class="card-image">
                             <img src="~/images/cardImages/Slot.jpg">
@@ -79,7 +79,8 @@
                         <div class="card-text">
                             <h3>Wanna play the slots</h3>
                             <form>
-                                <button class="btn btn-success" asp-area="" asp-controller="Gamblers" asp-action="LogIn" type="submit">Play Now!</button>
+                                <button class="btn btn-success" asp-area="" asp-controller="Games" asp-action="Slots"
+                                    type="submit">Play Now!</button>
                             </form>
                         </div>
                     </div>

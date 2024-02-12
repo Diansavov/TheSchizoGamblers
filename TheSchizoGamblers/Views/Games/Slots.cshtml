@@ -1,0 +1,51 @@
+@model TheSchizoGamblers.Models.Games.SlotsModel
+
+@{
+    ViewData["Title"] = "Slots";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/slots.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class="test-container">
+        <div class="test-itmes">
+            <table>
+                <tr>
+                    @for (int i = 1; i <= 3; i++)
+                    {
+                        <th>
+                            Slot @i
+                        </th>
+                    }
+                </tr>
+                <tr>
+                    @for (int i = 0; i < 3; i++)
+                    {
+                        <th>
+                            @Model.NumbersArray[i]
+                        </th>
+                    }
+                </tr>
+            </table>
+
+            <form asp-action="Slots">
+                <button class="btn btn-success" type="submit">Spin!</button>
+            </form>
+        </div>
+    </div>
+    @if (Model.NumbersArray[0] == 1 && Model.NumbersArray[1] == 1 && Model.NumbersArray[2] == 1)
+    {
+        <div class="slots-container">
+            <div class="slots-items">
+                @for (int i = 0; i < 3; i++)
+                {
+                    <img src="~/images/cardImages/Chip.png">
+                }
+
+            </div>
+        </div>
+    }
+
+</body>

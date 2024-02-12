@@ -1,0 +1,46 @@
+table{
+    border: 1px solid red;
+    text-align: center;
+    margin-bottom: 10px;
+    
+}
+.test-container{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.test-items{
+    flex:0 0 calc(100% / 1);
+    align-items: center;
+    justify-content: center;
+}
+form
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+th{
+    height: 50px;
+    width: 50px;
+}
+
+.slots-container{
+    display: flex;
+    width: 100%;
+    margin: 20px auto 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.slots-items{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: calc((180px * 3) + 16px);
+    align-items: center;
+    justify-content: center;
+}
