@@ -31,8 +31,16 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Wanna play the slots?</h5>
                     <form>
-                        <button class="btn btn-success" asp-area="" asp-controller="Gamblers" asp-action="LogIn"
-                            type="submit">Play Now!</button>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <button class="btn btn-success" asp-area="" asp-controller="Games" asp-action="Slots"
+                                type="submit">Play Now!</button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-success" asp-area="" asp-controller="Gamblers" asp-action="LogIn"
+                                type="submit">Log in</button>
+                        }
                     </form>
                 </div>
             </div>
