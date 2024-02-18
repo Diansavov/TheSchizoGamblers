@@ -16,6 +16,7 @@ table{
     align-items: center;
     justify-content: center;
 }
+
 form
 {
     display: flex;
@@ -26,21 +27,29 @@ th{
     height: 50px;
     width: 50px;
 }
-
+.slots-image {
+    display: flex;
+    width: 180px;
+    height: calc((180px * 3) + (8px * 2));
+    overflow: hidden;
+}
 .slots-container{
     display: flex;
-    width: 100%;
+    width: calc((180px * 5) + (8px * 4) + (3px * 2));
     margin: 20px auto 0 auto;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    background-color: rgba(139,0,139, .9);
+    border: 3px solid yellow;
+    border-radius: 12px;
 }
 .slots-items{
     position: relative;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    max-width: calc((180px * 3) + 16px);
+    max-width: calc((180px * 5) + (8px * 4));
     align-items: center;
     justify-content: center;
 }
