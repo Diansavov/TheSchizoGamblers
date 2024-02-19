@@ -9,44 +9,26 @@
 </head>
 
 <body>
-    <div class="test-container">
-        <div class="test-itmes">
-            <table>
-                <tr>
-                    @for (int i = 1; i <= 3; i++)
-                    {
-                        <th>
-                            Slot @i
-                        </th>
-                    }
-                </tr>
-                <tr>
-                    @for (int i = 0; i < 3; i++)
-                    {
-                        <th>
-                            @Model.NumbersArray[i]
-                        </th>
-                    }
-                </tr>
-            </table>
 
-            <form asp-action="Slots">
-                <button class="btn btn-success" type="submit">Spin!</button>
-            </form>
-        </div>
-    </div>
-    @if (!Model.SlotsEqual)
-    {
-        <div class="slots-container">
-            <div class="slots-items">
-                @for (int i = 0; i < 15; i++)
+
+    <div class="slots-container">
+        <div class="slots-items">
+            @for (int i = 0; i < 3; i++)
+            {
+                @for (int j = 0; j < 5; j++)
                 {
                     <div class="slots-image">
-                        <img src="~/images/slotsImages/Diamond.png">
+                        <img src="~/images/slotsImages/@(Model.SlotsArray[i, j]).png">
                     </div>
                 }
-            </div>
+            }
+
         </div>
-    }
+    </div>
+    <form asp-action="Slots">
+        <div class="slots-button">
+            <button class="btn btn-success" type="submit">Spin!</button>
+        </div>
+    </form>
 
 </body>

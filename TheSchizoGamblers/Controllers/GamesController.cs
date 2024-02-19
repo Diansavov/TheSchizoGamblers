@@ -19,20 +19,8 @@ namespace TheSchizoGamblers.Controllers
         [HttpPost]
         public IActionResult Slots(SlotsModel slotsModel)
         {
-            Random random = new Random();
+            slotsModel.Randomize();
 
-            for (int i = 0; i < slotsModel.NumbersArray.Length; i++)
-            {
-                slotsModel.NumbersArray[i] = random.Next(1, 8);
-            }
-            for (int i = 0; i < slotsModel.NumbersArray.Length; i++)
-            {
-                slotsModel.SlotsEqual = slotsModel.NumbersArray[0].Equals(slotsModel.NumbersArray[i]);
-                if (!slotsModel.SlotsEqual)
-                {
-                    return View(slotsModel);
-                }
-            }
             return View(slotsModel);
         }
 
