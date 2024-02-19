@@ -30,18 +30,21 @@ th{
 .slots-image {
     display: flex;
     width: 180px;
-    height: calc((180px * 3) + (8px * 2));
+    height: 180px;
     overflow: hidden;
+}
+.slots-image img{
+    border-radius: 5px;
 }
 .slots-container{
     display: flex;
-    width: calc((180px * 5) + (8px * 4) + (3px * 2));
+    width: calc((180px * 5) + (8px * 4) + (8px * 2));
     margin: 20px auto 0 auto;
     align-items: center;
     justify-content: center;
     gap: 8px;
     background-color: rgba(139,0,139, .9);
-    border: 3px solid yellow;
+    border: 8px solid rgba(139,0,139, .9);
     border-radius: 12px;
 }
 .slots-items{
