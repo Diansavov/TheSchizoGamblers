@@ -18,7 +18,7 @@
                 @for (int j = 0; j < 5; j++)
                 {
                     <div class="slots-image">
-                        <img src="~/images/slotsImages/@(Model.SlotsArray[i, j]).png">
+                        <img id="slotsFigure" src="~/images/slotsImages/@(Model.SlotsArray[i, j]).png">
                     </div>
                 }
             }
@@ -26,9 +26,10 @@
         </div>
     </div>
     <form asp-action="Slots">
-        <div class="slots-button">
+        <div class="slots-button" id="spinButton">
             <button class="btn btn-success" type="submit">Spin!</button>
         </div>
     </form>
 
+    <script src="~/js/slotsSpin.js"></script>
 </body>
