@@ -7,4 +7,9 @@ btn.onclick = () => {
         element.style.transform = "translateY(180px)";
         element.style.transition = "transform 500ms ease-in-out";
     });
+    setTimeout(() => {
+        document.getElementById("slotForm").submit();
+    }, 600);
+    return false;
 }
+
