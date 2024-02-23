@@ -32,10 +32,11 @@
     width: 180px;
     height: 180px;
     overflow: hidden;
-    border-radius: 5px;
     transition: 500ms;
 }
-
+.slots-image img{
+    border-radius: 5px;
+}
 .slots-image:hover {
     transform: translateY(5px);
 }
