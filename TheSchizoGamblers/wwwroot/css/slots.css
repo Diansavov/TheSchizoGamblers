@@ -36,7 +36,15 @@
 }
 .slots-image img{
     border-radius: 5px;
+    animation-name: upperSpin;
+    animation-duration: 300ms;
 }
+
+@keyframes upperSpin{
+    from {transform: translateY(-180px);}
+    to {transform: translateY(0px);}
+}
+
 .slots-image:hover {
     transform: translateY(5px);
 }
