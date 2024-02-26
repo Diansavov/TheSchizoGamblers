@@ -22,30 +22,22 @@ function FillSlotsMatrix() {
     return [matrixImages, matrixBottomImages];
 }
 
-function spinSlots(matrixImages, matrixBottomImages, currentIteration, flippedIteration) {
+function spinSlots(matrixImages, matrixBottomImages) {
 
-    for (let i = 0; i < matrixImages.length - flippedIteration; i++) {
+    for (let i = 0; i < matrixImages.length; i++) {
         for (let j = 0; j < matrixImages[i].length; j++) {
-
-            matrixImages[i][j].style.transform = `translateY(${(180 * flippedIteration) + (8 * flippedIteration)}px)`;
-            matrixImages[i][j].style.transition = `transform ${spinLenght}ms ease-in-out`;
-
-            matrixBottomImages[currentIteration][j].style.transform = "translateY(180px)";
-            matrixBottomImages[currentIteration][j].style.transition = `transform ${spinLenght}ms ease-in-out`;
+            matrixBottomImages[i][j].style.transform = "translateY(180px)";
+            matrixBottomImages[i][j].style.transition = `transform ${spinLenght}ms ease-in-out`;
         }
     }
 
-    if (flippedIteration == matrixImages.length) {
-        for (let j = 0; j < matrixImages[0].length; j++) {
-            matrixBottomImages[currentIteration][j].style.transform = "translateY(180px)";
+}
+document.body.onload = () => {
+    btn.disabled = true;
 
-            matrixBottomImages[currentIteration][j].style.transition = `transform ${spinLenght}ms ease-in-out`;
-        }
-    }
     setTimeout(() => {
-        spinSlots(matrixImages, matrixBottomImages, currentIteration - 1, flippedIteration + 1);
-    }, spinLenght);
-
+        btn.disabled = false;
+    }, 200);
 }
 
 btn.onclick = () => {
@@ -55,7 +47,7 @@ btn.onclick = () => {
 
     setTimeout(() => {
         document.getElementById("slotForm").submit();
-    }, spinLenght * matrixImages[0].length);
+    }, spinLenght);
 
     return false;
 }
