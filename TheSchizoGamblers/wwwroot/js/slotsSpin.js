@@ -1,8 +1,6 @@
 const btn = document.getElementById("spinButton");
-const currentIteration = 2;
-const flippedIteration = 1;
 let currentIndex = 0;
-const [matrixImages, matrixBottomImages] = FillSlotsMatrix();
+const matrixBottomImages = FillSlotsMatrix();
 const spinLenght = 250;
 
 function FillSlotsMatrix() {
@@ -14,40 +12,43 @@ function FillSlotsMatrix() {
 
     for (let i = 0; i < matrixImages.length; i++) {
         for (let j = 0; j < 5; j++) {
-            matrixImages[i][j] = imges[currentIndex];
             matrixBottomImages[i][j] = bottomImges[currentIndex];
             currentIndex++;
         }
     }
-    return [matrixImages, matrixBottomImages];
+    return matrixBottomImages;
 }
 
-function spinSlots(matrixImages, matrixBottomImages) {
+function spinSlots(matrixBottomImages, spinDegree) {
 
-    for (let i = 0; i < matrixImages.length; i++) {
-        for (let j = 0; j < matrixImages[i].length; j++) {
-            matrixBottomImages[i][j].style.transform = "translateY(180px)";
-            matrixBottomImages[i][j].style.transition = `transform ${spinLenght}ms ease-in-out`;
+    for (let i = 0; i < matrixBottomImages.length; i++) {
+        for (let j = 0; j < matrixBottomImages[i].length; j++) {
+            matrixBottomImages[i][j].style.transform = `translateY(${spinDegree}px)`;
+            matrixBottomImages[i][j].style.transition = `transform ${spinLenght + (100 * j)}ms ease-in-out`;
         }
     }
 
 }
 document.body.onload = () => {
-    btn.disabled = true;
-
+    const yes = document.querySelectorAll("[id=imagesContainer]");
+    
+    for (let i = 0; i < yes.length; i++) {
+        yes[i].classList.remove("no-js-Animation");
+    }
+    
     setTimeout(() => {
-        btn.disabled = false;
-    }, 200);
+        spinSlots(matrixBottomImages, 0)
+    }, 250);
 }
-
+ 
 btn.onclick = () => {
     btn.disabled = true;
 
-    spinSlots(matrixImages, matrixBottomImages, currentIteration, flippedIteration);
+    spinSlots(matrixBottomImages, 180);
 
     setTimeout(() => {
         document.getElementById("slotForm").submit();
-    }, spinLenght);
+    }, spinLenght + 450);
 
     return false;
 }

@@ -11,7 +11,13 @@ namespace TheSchizoGamblers.Models.Games
         public SlotsModel()
         {
             SlotsArray = new string[3, 5];
-
+            for (int i = 0; i < SlotsArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < SlotsArray.GetLength(1); j++)
+                {
+                    SlotsArray[i, j] = "Diamond";
+                }
+            }
         }
 
         public void Randomize()

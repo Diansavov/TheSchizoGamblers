@@ -36,8 +36,13 @@
 }
 .slots-image img{
     border-radius: 5px;
+    transform: translateY(-180px);
+
+}
+.no-js-Animation img{
+    transform: translateY(0px);
     animation-name: upperSpin;
-    animation-duration: 300ms;
+    animation-duration: 250ms;
 }
 
 @keyframes upperSpin{
