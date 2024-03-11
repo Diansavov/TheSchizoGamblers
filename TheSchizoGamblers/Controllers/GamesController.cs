@@ -21,6 +21,8 @@ namespace TheSchizoGamblers.Controllers
         {
             slotsModel.Randomize();
 
+            slotsModel.CheckWin();
+
             return View(slotsModel);
         }
 

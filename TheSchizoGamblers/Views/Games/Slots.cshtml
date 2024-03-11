@@ -26,10 +26,12 @@
         </div>
     </div>
     <form id="slotForm" asp-action="Slots">
-        <div class="slots-button" >
+        <div class="slots-button">
             <button id="spinButton" class="btn btn-success" type="submit">Spin!</button>
         </div>
     </form>
-
+    <div class="text-center">
+        @Model.Money
+    </div>
     <script src="~/js/slotsSpin.js"></script>
 </body>

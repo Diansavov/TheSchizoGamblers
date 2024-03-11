@@ -5,11 +5,19 @@ namespace TheSchizoGamblers.Models.Games
     public class SlotsModel
     {
         private string[] SlotFigures = ["Cherries", "Plum", "Melon", "Bar", "Diamond", "HorseShoe", "Seven"];
-        private bool SlotsEqual = false;
+        private int[,] WinPrices = new int[,]
+            {
+                {3, 3, 3, 3, 10, 15, 20},
+                {5, 5, 5, 5, 20, 20, 30},
+                {15, 15, 15, 15, 30, 35, 55}
+            };
         public string[,] SlotsArray { get; set; }
         public double Money { get; set; }
+        public int Lines { get; set; }
+
         public SlotsModel()
         {
+            Lines = 3;
             SlotsArray = new string[3, 5];
             for (int i = 0; i < SlotsArray.GetLength(0); i++)
             {
@@ -31,19 +39,37 @@ namespace TheSchizoGamblers.Models.Games
                     SlotsArray[i, j] = SlotFigures[random.Next(0, 7)];
                 }
             }
-
         }
-        public bool CheckWin()
+        public void CheckWin()
         {
-            for (int i = 0; i < SlotsArray.GetLength(1); i++)
+            int tempMoney = 0;
+            if (Lines >= 3)
             {
-                SlotsEqual = SlotsArray[1, 0].Equals(SlotsArray[1, i]);
-                if (!SlotsEqual)
+                bool slotsEqual = false;
+                for (int i = 0; i < SlotsArray.GetLength(0); i++)
                 {
-                    return false;
+                    for (int j = 0; j < SlotsArray.GetLength(1); j++)
+                    {
+                        slotsEqual = SlotsArray[i, 0].Equals(SlotsArray[1, j]);
+                        if (!slotsEqual)
+                        {
+                            break;
+                        }
+                        if (j >= 2)
+                        {
+                            int type = Array.IndexOf(SlotFigures, SlotsArray[i, 0]);
+                            tempMoney += GetWinValue(WinPrices, j, type);
+                        }
+                    }
                 }
             }
-            return true;
+            Money += tempMoney;
         }
+        static int GetWinValue(int[,] WinPrices, int streakOfLines, int type)
+        {
+            return WinPrices[streakOfLines - 2, type];
+        }
+
     }
+
 }
