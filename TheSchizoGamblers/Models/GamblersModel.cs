@@ -6,5 +6,6 @@ namespace TheSchizoGamblers.Models
     public class GamblersModel : IdentityUser
     {
         public DateTime DateOfBirth { get; set; }
+        public decimal Balance { get; set; }
     }
 }

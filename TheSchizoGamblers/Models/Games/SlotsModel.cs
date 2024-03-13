@@ -7,12 +7,12 @@ namespace TheSchizoGamblers.Models.Games
         private string[] SlotFigures = ["Cherries", "Plum", "Melon", "Bar", "Diamond", "HorseShoe", "Seven"];
         private int[,] WinPrices = new int[,]
             {
-                {3, 3, 3, 3, 10, 15, 20},
-                {5, 5, 5, 5, 20, 20, 30},
-                {15, 15, 15, 15, 30, 35, 55}
+                {3, 3, 3, 8, 10, 15, 50},
+                {7, 7, 7, 15, 50, 120, 500},
+                {15, 15, 15, 100, 250, 1000, 5000}
             };
         public string[,] SlotsArray { get; set; }
-        public double Money { get; set; }
+        public decimal Money { get; set; }
         public int Lines { get; set; }
 
         public SlotsModel()
@@ -40,7 +40,7 @@ namespace TheSchizoGamblers.Models.Games
                 }
             }
         }
-        public void CheckWin()
+        public decimal CheckWin()
         {
             int tempMoney = 0;
             if (Lines >= 3)
@@ -50,7 +50,7 @@ namespace TheSchizoGamblers.Models.Games
                 {
                     for (int j = 0; j < SlotsArray.GetLength(1); j++)
                     {
-                        slotsEqual = SlotsArray[i, 0].Equals(SlotsArray[1, j]);
+                        slotsEqual = SlotsArray[i, 0].Equals(SlotsArray[i, j]);
                         if (!slotsEqual)
                         {
                             break;
@@ -64,6 +64,7 @@ namespace TheSchizoGamblers.Models.Games
                 }
             }
             Money += tempMoney;
+            return Money;
         }
         static int GetWinValue(int[,] WinPrices, int streakOfLines, int type)
         {

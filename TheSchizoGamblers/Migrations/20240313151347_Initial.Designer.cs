@@ -11,8 +11,8 @@ using TheSchizoGamblers.Data;
 namespace TheSchizoGamblers.Migrations
 {
     [DbContext(typeof(GamblersContext))]
-    [Migration("20240125212436_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20240313151347_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -161,6 +161,9 @@ namespace TheSchizoGamblers.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
