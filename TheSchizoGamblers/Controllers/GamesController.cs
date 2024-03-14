@@ -38,7 +38,7 @@ namespace TheSchizoGamblers.Controllers
             {
                 return RedirectToAction("LogIn", "Gamblers");
             }
-            
+
             slotsModel.Randomize();
 
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
