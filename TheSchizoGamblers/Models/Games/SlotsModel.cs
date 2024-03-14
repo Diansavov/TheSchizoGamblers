@@ -63,8 +63,7 @@ namespace TheSchizoGamblers.Models.Games
                     }
                 }
             }
-            Money += tempMoney;
-            return Money;
+            return tempMoney;
         }
         static int GetWinValue(int[,] WinPrices, int streakOfLines, int type)
         {
