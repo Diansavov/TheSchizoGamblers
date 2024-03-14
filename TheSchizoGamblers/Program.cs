@@ -25,7 +25,7 @@ namespace TheSchizoGamblers
             {
                 options.Password.RequireNonAlphanumeric = false;
             });
-
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

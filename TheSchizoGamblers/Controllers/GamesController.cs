@@ -5,12 +5,10 @@ using System.Diagnostics;
 using TheSchizoGamblers.Data;
 using TheSchizoGamblers.Models;
 using TheSchizoGamblers.Models.Games;
-using TheSchizoGamblers.Models.ViewModels;
 
 
 namespace TheSchizoGamblers.Controllers
 {
-    [Authorize]
     public class GamesController : Controller
     {
         private readonly UserManager<GamblersModel> _userManager;
@@ -24,6 +22,11 @@ namespace TheSchizoGamblers.Controllers
         [HttpGet]
         public IActionResult Slots()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("LogIn", "Gamblers");
+            }
+
             SlotsModel slots = new SlotsModel();
 
             return View(slots);
@@ -31,6 +34,11 @@ namespace TheSchizoGamblers.Controllers
         [HttpPost]
         public async Task<IActionResult> Slots(SlotsModel slotsModel)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("LogIn", "Gamblers");
+            }
+            
             slotsModel.Randomize();
 
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
