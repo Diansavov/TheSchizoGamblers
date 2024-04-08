@@ -5,7 +5,7 @@ namespace TheSchizoGamblers.Models.Games
 {
     public class SlotsModel
     {
-        private string[] SlotFigures = ["Cherries", "Plum", "Melon", "Bar", "Diamond", "HorseShoe", "Seven"];
+        private string[] SlotFigures = new string[] {"Cherries", "Plum", "Melon", "Bar", "Diamond", "HorseShoe", "Seven"};
         private int[,] WinPrices = new int[,]
             {
                 {3, 3, 3, 8, 10, 15, 50},

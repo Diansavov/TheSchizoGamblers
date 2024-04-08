@@ -17,7 +17,9 @@ namespace TheSchizoGamblers
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<GamblersContext>(options =>
-             options.UseMySql(builder.Configuration.GetConnectionString("GamblersConnectionString"), new MySqlServerVersion(new Version(10, 0, 1))));
+             {
+                 options.UseSqlServer(builder.Configuration.GetConnectionString("GamblersConnectionString"));
+             });
 
             builder.Services.AddDefaultIdentity<GamblersModel>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>().AddEntityFrameworkStores<GamblersContext>();
 
@@ -25,7 +27,7 @@ namespace TheSchizoGamblers
             {
                 options.Password.RequireNonAlphanumeric = false;
             });
-            
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
