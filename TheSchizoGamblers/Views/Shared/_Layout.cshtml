@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,13 +9,15 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TheSchizoGamblers.styles.css" asp-append-version="true" />
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow">
             <div class="container-fluid">
-                <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">TheSchizoGamblers</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand text-white" asp-area="" asp-controller="Home"
+                    asp-action="Index">TheSchizoGamblers</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
@@ -23,20 +26,29 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home"
+                                asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
-                    <form class="d-flex gap-2">
-                        @if (!User.Identity.IsAuthenticated)
-                        {
-                            <button class="btn btn-outline-success" asp-area="" asp-controller="Gamblers" asp-action="LogIn" type="submit">Log In</button>
-                            <button class="btn btn-success" asp-area="" asp-controller="Gamblers" asp-action="Gamblers" type="submit">Register</button>
-                        }
-                        else
-                        {
-                            <a asp-area="" asp-controller="Gamblers" asp-action="LogOut" type="submit">Log Out</a>
-                        }
-                    </form>
+                    <div class="d-flex gap-2">
+                        <form>
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <button class="btn btn-outline-success" asp-area="" asp-controller="Gamblers"
+                                    asp-action="LogIn" type="submit">Log In</button>
+                                <button class="btn btn-success" asp-area="" asp-controller="Gamblers" asp-action="Gamblers"
+                                    type="submit">Register</button>
+                            }
+                            else
+                            {
+                                <div class="justify-content-center">
+                                    <button class="btn btn-outline-success" asp-area="" asp-controller="Profile"
+                                        asp-action="UserProfile" type="submit">User Profile</button>
+                                    <a asp-area="" asp-controller="Gamblers" asp-action="LogOut" type="submit">Log Out</a>
+                                </div>
+                            }
+                        </form>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -57,4 +69,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>
