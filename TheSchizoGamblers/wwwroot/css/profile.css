@@ -18,7 +18,10 @@
     height: 650px;
     position: relative;
     width: 65%;
-
+}
+.profile-side-panel{
+    width: 250px;
+    margin-right: 5px;
 }
 
 .profile:hover::before {
