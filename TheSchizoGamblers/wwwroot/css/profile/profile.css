@@ -1,3 +1,5 @@
+/*Profile Body and Side Panel*/
+
 :root {
     --profile-color: rgb(45, 45, 45);
 }
@@ -17,12 +19,21 @@
     border-radius: 10px;
     height: 650px;
     position: relative;
-    width: 65%;
+    width: 55%;
+    overflow: auto;
+
 }
 .profile-side-panel{
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 650px;
+    position: relative;
     width: 250px;
+    overflow: auto;
     margin-right: 5px;
 }
+
 
 .profile:hover::before {
     opacity: 1;
@@ -55,7 +66,7 @@
     z-index: 1;
 }
 
-.profile>.profile-content {
+.profile>.profile-border {
     background-color: var(--profile-color);
     border-radius: inherit;
     display: flex;

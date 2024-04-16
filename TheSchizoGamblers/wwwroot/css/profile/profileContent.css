@@ -1,0 +1,17 @@
+/*Profile Content*/
+.profile-content {
+    margin: 5px 10px auto 10px;
+    align-items: start;
+}
+
+.btn-toggle{
+
+}
+
+/*.btn-toggle::before {
+    transform: rotate(90deg);
+}*/
+
+.btn-toggle::before {
+display: inline;    
+}
