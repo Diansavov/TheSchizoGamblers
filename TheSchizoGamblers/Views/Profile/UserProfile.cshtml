@@ -3,11 +3,65 @@
 }
 
 <head>
-    <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/profile/profile.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/profile/profileContent.css" asp-append-version="true" />
 </head>
 
 <body>
-    <div class="profile">
-        
+    
+    <div id="profiles">
+        <div class="profile-side-panel">
+            <ul class="nav d-flex flex-column profile-content">
+                <li class="mb-1">
+                    <button class="btn btn-toggle" data-bs-toggle="collapse"
+                        data-bs-target="#list-collapse1">Penis</button>
+                    <div id="list-collapse1" class="collapse hide">
+                        <ul class="btn-toggle-nav">
+                            <li>Kur</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle" data-bs-toggle="collapse"
+                        data-bs-target="#list-collapse2">Penis2</button>
+                    <div id="list-collapse2" class="collapse hide">
+                        <ul class="btn-toggle-nav">
+                            <li>Kur</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1"> 
+                    <button class="btn btn-toggle" data-bs-toggle="collapse"
+                        data-bs-target="#list-collapse3">Penis3</button>
+                    <div id="list-collapse3" class="collapse hide">
+                        <ul class="btn-toggle-nav">
+                            <li>Kur</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle" data-bs-toggle="collapse"
+                        data-bs-target="#list-collapse4">Penis4</button>
+                    <div id="list-collapse4" class="collapse hide">
+                        <ul class="btn-toggle-nav">
+                            <li>Kur</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle" data-bs-toggle="collapse"
+                        data-bs-target="#list-collapse5">Penis5</button>
+                    <div id="list-collapse5" class="collapse hide">
+                        <ul class="btn-toggle-nav">
+                            <li>Kur</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="profile">
+            <div class="profile-border"></div>
+        </div>
     </div>
+    <script src="~/js/profileGlow.js"></script>
 </body>
