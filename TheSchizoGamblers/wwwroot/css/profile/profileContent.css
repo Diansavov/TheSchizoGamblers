@@ -5,13 +5,24 @@
 }
 
 .btn-toggle{
-
+    margin-left: 1.3px;
+}
+.btn-toggle::before{
+    content: '';
+    margin-top: 7.5px;
+    position: absolute;
+    left: 13px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+}
+.btn-toggle::before{
+    transform: rotate(-45deg);
+    transition: transform 0.5s;
 }
 
-/*.btn-toggle::before {
-    transform: rotate(90deg);
-}*/
-
-.btn-toggle::before {
-
-}
+.btn-toggle[aria-expanded="true"]::before {
+    transform: rotate(45deg) translateY(-2px) translateX(-1px);
+    transition: transform 0.5s;
+  }
