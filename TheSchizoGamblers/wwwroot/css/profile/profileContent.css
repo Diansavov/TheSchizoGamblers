@@ -5,13 +5,17 @@
 }
 
 .btn-toggle{
+    margin-bottom: 3px;
     margin-left: 1.3px;
+    width: 100%;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .btn-toggle::before{
     content: '';
     margin-top: 7.5px;
     position: absolute;
-    left: 13px;
+    left: 20px;
     border: solid white;
     border-width: 0 2px 2px 0;
     display: inline-block;
@@ -21,8 +25,19 @@
     transform: rotate(-45deg);
     transition: transform 0.5s;
 }
-
 .btn-toggle[aria-expanded="true"]::before {
     transform: rotate(45deg) translateY(-2px) translateX(-1px);
     transition: transform 0.5s;
-  }
+}
+.collapsed{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-toggle-nav{
+    list-style: none;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.sub-menu{
+    margin-bottom: 5px;
+}
