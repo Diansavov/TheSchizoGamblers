@@ -41,3 +41,13 @@
 .sub-menu{
     margin-bottom: 5px;
 }
+.sub-menu-btn{
+    width: 100%;
+    background-color: #00bc8c;
+    transition: 0.25s ease-in;
+}
+.sub-menu-btn:hover{
+    background-color: #008866;
+    transition: 0.25s ease-out;
+
+}
