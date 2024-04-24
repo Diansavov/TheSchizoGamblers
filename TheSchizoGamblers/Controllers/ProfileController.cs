@@ -21,7 +21,11 @@ namespace TheSchizoGamblers.Controllers
         {
             return View();
         }
-        
+        [HttpGet]
+        public IActionResult UserProfile2()
+        {
+            return View();
+        }
 
 
     }
