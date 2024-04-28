@@ -33,7 +33,7 @@
     margin-right: 5px;
 }
 
-
+/*
 .profile:hover::before {
     opacity: 1;
 }
@@ -64,7 +64,7 @@
             transparent 40%);
     z-index: 1;
 }
-
+*/
 .profile>.profile-border {
     background-color: var(--profile-color);
     border-radius: inherit;
