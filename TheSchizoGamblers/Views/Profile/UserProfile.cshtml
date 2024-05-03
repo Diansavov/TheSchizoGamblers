@@ -5,10 +5,10 @@
 <head>
     <link rel="stylesheet" href="~/css/profile/profile.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/profile/profileContent.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/profile/redirectCards.css" asp-append-version="true" />
 </head>
 
 <body>
-
     <div id="profiles">
         <div class="profile-side-panel">
             <ul class="nav d-flex flex-column profile-content">
@@ -20,7 +20,7 @@
                             <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
                                     asp-action="UserProfile">Beginning</a></li>
                             <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
-                                    asp-action="UserProfile2">No Kys</a></li>
+                                    asp-action="UserProfile2">About</a></li>
                         </ul>
                     </div>
                 </li>
@@ -29,8 +29,12 @@
                         data-bs-target="#list-collapse2">Profile Settings</button>
                     <div id="list-collapse2" class="collapse hide">
                         <ul class="btn-toggle-nav">
-                            <li class="sub-menu"><a class="btn sub-menu-btn-special sub-menu-btn" asp-controller="Gamblers"
-                                    asp-action="LogOut">Log out</a></li>
+                            <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
+                                    asp-action="UserProfile2">Public Profile</a></li>
+                            <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
+                                    asp-action="UserProfile2">Account</a></li>
+                            <li class="sub-menu"><a class="btn sub-menu-btn-special sub-menu-btn"
+                                    asp-controller="Gamblers" asp-action="LogOut">Log out</a></li>
                         </ul>
                     </div>
                 </li>
@@ -40,27 +44,38 @@
                     <div id="list-collapse3" class="collapse hide">
                         <ul class="btn-toggle-nav">
                             <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
-                                    asp-action="UserProfile2">History</a></li>
+                                    asp-action="UserProfile2">Deposit</a></li>
+                                    <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
+                                    asp-action="UserProfile2">Withdraw</a></li>
+                                    <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
+                                    asp-action="UserProfile2">Card managment</a></li>
+                                    
                         </ul>
                     </div>
                 </li>
                 <li class="mb-1 w-100">
                     <button class="btn btn-toggle collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#list-collapse4">Option4</button>
+                        data-bs-target="#list-collapse4">History</button>
                     <div id="list-collapse4" class="collapse hide">
                         <ul class="btn-toggle-nav">
                             <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
-                                    asp-action="UserProfile2">No Kys</a></li>
+                                    asp-action="UserProfile2">Transactions</a></li>
+                            <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
+                                    asp-action="UserProfile2">Bets</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="mb-1 w-100">
                     <button class="btn  btn-toggle collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#list-collapse5">Option5</button>
+                        data-bs-target="#list-collapse5">Support</button>
                     <div id="list-collapse5" class="collapse hide">
                         <ul class="btn-toggle-nav">
                             <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
-                                    asp-action="UserProfile2">No Kys</a></li>
+                                    asp-action="UserProfile2">Contact support</a></li>
+                                    <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
+                                    asp-action="UserProfile2">Reset password</a></li>
+                                    <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
+                                    asp-action="UserProfile2">Change email</a></li>
                         </ul>
                     </div>
                 </li>
@@ -70,14 +85,56 @@
             <div class="profile-border">
                 <div class="profile-text">
                     <h1>Hello, <span class="bold-text">@User.Identity.Name</span></h1>
-                    <p>Welcome to TheSchizoGamblers, we are a fake online casino trying to provide fun 
+                    <p>Welcome to TheSchizoGamblers, the fake online casino trying to provide fun
                         and gambling to some gambling addicted people such as you,
-                         <span class="bold-text">@User.Identity.Name</span>.</p>
+                        <span class="bold-text">@User.Identity.Name</span>.
+                    </p>
+                    <div class="cards-container">
+                        <div id="cards">
+                            <a class="card" asp-controller="Home" asp-action="Index">
+                                <div class="card-content">
+                                    <div class="card-image">
+                                        <img src="~/images/slots.jpg">
+                                    </div>
+                                    <div class="card-text">
+                                        <h3>Go to Home page</h3>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="card" asp-controller="Games" asp-action="Slots">
+                                <div class="card-content">
+                                    <div class="card-image">
+                                    </div>
+                                    <div class="card-text">
+                                        <h3>Go to Transactions</h3>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="card" asp-controller="Games" asp-action="Slots">
+                                <div class="card-content">
+                                    <div class="card-image">
+                                    </div>
+                                    <div class="card-text">
+                                        <h3>Go to Profile settings</h3>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="card" asp-controller="Games" asp-action="Slots">
+                                <div class="card-content">
+                                    <div class="card-image">
+                                    </div>
+                                    <div class="card-text">
+                                        <h3>Go to History</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <script src="~/js/cardsGlow.js"></script>
         </section>
     </div>
-    <script src="~/js/profile/profileGlow.js"></script>
     <script src="~/js/profile/profileArrowRotate.js"></script>
     <script src="~/lib/node_modules/pjax/pjax.js"></script>
     <script src="~/js/profile/profilePjax.js"></script>
