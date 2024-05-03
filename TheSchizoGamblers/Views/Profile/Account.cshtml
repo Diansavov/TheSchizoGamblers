@@ -3,32 +3,37 @@
 }
 
 <head>
-    <link rel="stylesheet" href="~/css/profile/redirectCards.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/profile/profile.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/profile/profileContent.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/profile/redirectCards.css" asp-append-version="true" />
 </head>
 
 <body>
     <div id="profiles">
+        <!--Side Panel-->
         <div class="profile-side-panel">
             <ul class="nav d-flex flex-column profile-content">
                 <li class="mb-1 w-100">
                     <button class="btn btn-toggle" data-bs-toggle="collapse" data-bs-target="#list-collapse1"
-                        aria-expanded="true">Overview</button>
-                    <div id="list-collapse1" class="collapse show">
+                        aria-expanded="false">Overview</button>
+                    <div id="list-collapse1" class="collapse hide">
                         <ul class="btn-toggle-nav">
                             <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
                                     asp-action="UserProfile">Beginning</a></li>
                             <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
-                                    asp-action="UserProfile2">No Kys</a></li>
+                                    asp-action="About">About</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="mb-1 w-100">
                     <button class="btn btn-toggle collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#list-collapse2">Profile Settings</button>
-                    <div id="list-collapse2" class="collapse hide">
+                        data-bs-target="#list-collapse2" aria-expanded="true">Profile Settings</button>
+                    <div id="list-collapse2" class="collapse show">
                         <ul class="btn-toggle-nav">
+                            <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
+                                    asp-action="PublicProfile">Public Profile</a></li>
+                            <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
+                                    asp-action="Account">Account</a></li>
                             <li class="sub-menu"><a class="btn sub-menu-btn-special sub-menu-btn"
                                     asp-controller="Gamblers" asp-action="LogOut">Log out</a></li>
                         </ul>
@@ -40,35 +45,47 @@
                     <div id="list-collapse3" class="collapse hide">
                         <ul class="btn-toggle-nav">
                             <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
-                                    asp-action="UserProfile2">History</a></li>
+                                    asp-action="Deposit">Deposit</a></li>
+                            <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
+                                    asp-action="Withdraw">Withdraw</a></li>
+                            <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
+                                    asp-action="CardManagment">Card managment</a></li>
+
                         </ul>
                     </div>
                 </li>
                 <li class="mb-1 w-100">
                     <button class="btn btn-toggle collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#list-collapse4">Option4</button>
+                        data-bs-target="#list-collapse4">History</button>
                     <div id="list-collapse4" class="collapse hide">
                         <ul class="btn-toggle-nav">
                             <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
-                                    asp-action="UserProfile2">No Kys</a></li>
+                                    asp-action="Transactions">Transactions</a></li>
+                            <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
+                                    asp-action="Bets">Bets</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="mb-1 w-100">
                     <button class="btn  btn-toggle collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#list-collapse5">Option5</button>
+                        data-bs-target="#list-collapse5">Support</button>
                     <div id="list-collapse5" class="collapse hide">
                         <ul class="btn-toggle-nav">
                             <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
-                                    asp-action="UserProfile2">No Kys</a></li>
+                                    asp-action="Contact">Contact support</a></li>
+                            <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
+                                    asp-action="ResetPassword">Reset password</a></li>
+                            <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
+                                    asp-action="ChangeEmail">Change email</a></li>
                         </ul>
                     </div>
                 </li>
             </ul>
         </div>
-         <section class="profile the-content">
+        <!--Main Content-->
+        <section class="profile the-content">
             <div class="profile-border">
-                <h1>No kys</h1>
+                <h1>Account</h1>
             </div>
             <script src="~/js/cardsGlow.js"></script>
 
