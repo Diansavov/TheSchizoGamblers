@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TheSchizoGamblers.Data;
@@ -5,6 +6,7 @@ using TheSchizoGamblers.Models;
 
 namespace TheSchizoGamblers.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
         private readonly GamblersContext _gamblersContext;

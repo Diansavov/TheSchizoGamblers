@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.VisualBasic;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using TheSchizoGamblers.Data;
@@ -25,7 +27,12 @@ namespace TheSchizoGamblers
             {
                 options.Password.RequireNonAlphanumeric = false;
             });
-            
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.Name = "GamblerCookie";
+                options.LoginPath = "/Gamblers/LogIn";
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -35,7 +42,7 @@ namespace TheSchizoGamblers
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

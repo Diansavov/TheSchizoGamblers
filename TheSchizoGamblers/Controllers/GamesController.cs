@@ -10,6 +10,7 @@ using TheSchizoGamblers.Models.Games;
 
 namespace TheSchizoGamblers.Controllers
 {
+    [Authorize]
     public class GamesController : Controller
     {
         private readonly UserManager<GamblersModel> _userManager;
@@ -23,11 +24,6 @@ namespace TheSchizoGamblers.Controllers
         [HttpGet]
         public IActionResult Slots()
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("LogIn", "Gamblers");
-            }
-
             SlotsModel slots = new SlotsModel();
 
             GamblersModel user = _gamblersContext.Users.Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
@@ -39,11 +35,6 @@ namespace TheSchizoGamblers.Controllers
         [HttpPost]
         public async Task<IActionResult> Slots(SlotsModel slotsModel)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("LogIn", "Gamblers");
-            }
-
             GamblersModel user = await _userManager.FindByNameAsync(User.Identity.Name);
 
             if (user.Balance < slotsModel.Lines * 1)

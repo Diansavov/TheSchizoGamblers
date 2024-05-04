@@ -99,6 +99,7 @@ namespace TheSchizoGamblers.Controllers
 
         }
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
