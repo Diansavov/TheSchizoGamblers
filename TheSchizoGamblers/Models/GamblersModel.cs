@@ -7,5 +7,6 @@ namespace TheSchizoGamblers.Models
     {
         public DateTime DateOfBirth { get; set; }
         public decimal Balance { get; set; }
+        public byte[]? PictureSource { get; set; }
     }
 }
