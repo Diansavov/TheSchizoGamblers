@@ -28,6 +28,7 @@ namespace TheSchizoGamblers.Controllers
             GamblersModel user = await _userManager.FindByNameAsync(User.Identity.Name);
 
             ProfilePicViewModel profilePic = new ProfilePicViewModel(user.PictureSource);
+
             return View(profilePic);
         }
         
