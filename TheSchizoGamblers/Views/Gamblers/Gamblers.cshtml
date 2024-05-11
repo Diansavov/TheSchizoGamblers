@@ -6,7 +6,12 @@
 
 <h1 style="text-align:center">Register</h1>
 <div class="formating">
-    <form asp-action="Gamblers">
+    <form asp-action="Gamblers" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="" class="form-label">Profile Picture</label>
+            <input type="file" class="form-control" asp-for="ProfilePic">
+            <span asp-validation-for="ProfilePic" class="text-danger"></span>
+        </div>
         <div class="mb-3">
             <label for="" class="form-label">Username</label>
             <input type="text" class="form-control" asp-for="Username">

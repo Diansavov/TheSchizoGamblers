@@ -35,12 +35,6 @@ namespace TheSchizoGamblers.Controllers
         [HttpPost]
         public async Task<IActionResult> Gamblers(GamblersViewModel addGamblerRequest)
         {
-            if (!await _roleManager.RoleExistsAsync("User"))
-            {
-                await _roleManager.CreateAsync(new IdentityRole("User"));
-                await _roleManager.CreateAsync(new IdentityRole("Admin"));
-            }
-
             if (ModelState.IsValid)
             {
 
@@ -50,6 +44,22 @@ namespace TheSchizoGamblers.Controllers
                     Email = addGamblerRequest.Email,
                     DateOfBirth = addGamblerRequest.DateOfBirth
                 };
+                
+                using (var memoryStream = new MemoryStream())  
+                {  
+                    await addGamblerRequest.ProfilePic.CopyToAsync(memoryStream);  
+
+                    // Upload the file if less than 2 MB  
+                    if (memoryStream.Length < 2097152)  
+                    {  
+                        user.PictureSource = memoryStream.ToArray();  
+                    }  
+                    else  
+                    {  
+                        TempData["Error"] = "The file is too large.";
+                    }  
+                }  
+                
                 var result = await _userManager.CreateAsync(user, addGamblerRequest.Password);
 
                 if (result.Succeeded)
@@ -99,6 +109,7 @@ namespace TheSchizoGamblers.Controllers
 
         }
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();

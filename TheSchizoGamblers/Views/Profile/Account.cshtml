@@ -15,8 +15,8 @@
             <ul class="nav d-flex flex-column profile-content">
                 <li class="mb-1 w-100">
                     <button class="btn btn-toggle" data-bs-toggle="collapse" data-bs-target="#list-collapse1"
-                        aria-expanded="true">Overview</button>
-                    <div id="list-collapse1" class="collapse show">
+                        aria-expanded="false">Overview</button>
+                    <div id="list-collapse1" class="collapse hide">
                         <ul class="btn-toggle-nav">
                             <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
                                     asp-action="UserProfile">Beginning</a></li>
@@ -27,8 +27,8 @@
                 </li>
                 <li class="mb-1 w-100">
                     <button class="btn btn-toggle collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#list-collapse2">Profile Settings</button>
-                    <div id="list-collapse2" class="collapse hide">
+                        data-bs-target="#list-collapse2" aria-expanded="true">Profile Settings</button>
+                    <div id="list-collapse2" class="collapse show">
                         <ul class="btn-toggle-nav">
                             <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
                                     asp-action="PublicProfile">Public Profile</a></li>
@@ -85,56 +85,10 @@
         <!--Main Content-->
         <section class="profile the-content">
             <div class="profile-border">
-                <div class="profile-text">
-                    <h1>Hello, <span class="bold-text">@User.Identity.Name</span></h1>
-                    <p>Welcome to TheSchizoGamblers, the fake online casino trying to provide fun
-                        and gambling to some gambling addicted people such as you,
-                        <span class="bold-text">@User.Identity.Name</span>.
-                    </p>
-                    <div class="cards-container">
-                        <div id="cards">
-                            <a class="card" asp-controller="Home" asp-action="Index">
-                                <div class="card-content">
-                                    <div class="card-image">
-                                        <img src="~/images/slots.jpg">
-                                    </div>
-                                    <div class="card-text">
-                                        <h3>Go to Home page</h3>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="card js-Pjax" asp-controller="Profile" asp-action="Transactions">
-                                <div class="card-content">
-                                    <div class="card-image">
-                                    </div>
-                                    <div class="card-text">
-                                        <h3>Go to Transactions</h3>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="card js-Pjax" asp-controller="Profile" asp-action="PublicProfile">
-                                <div class="card-content">
-                                    <div class="card-image">
-                                    </div>
-                                    <div class="card-text">
-                                        <h3>Go to Profile settings</h3>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="card js-Pjax" asp-controller="Profile" asp-action="Transactions">
-                                <div class="card-content">
-                                    <div class="card-image">
-                                    </div>
-                                    <div class="card-text">
-                                        <h3>Go to History</h3>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <h1>Account</h1>
             </div>
             <script src="~/js/cardsGlow.js"></script>
+
         </section>
     </div>
     <script src="~/js/profile/profileArrowRotate.js"></script>

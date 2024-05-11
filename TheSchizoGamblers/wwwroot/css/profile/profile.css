@@ -1,7 +1,7 @@
 /*Profile Body and Side Panel*/
-
+/*#222*/
 :root {
-    --profile-color: rgb(45, 45, 45);
+    --profile-color: #222;
 }
 
 #profiles{
@@ -9,9 +9,6 @@
     align-items: center;
     justify-content: center;
     margin: 25px auto 0 auto;
-}
-#profiles:hover>.profile::after {
-    opacity: 1;
 }
 
 .profile {
@@ -23,7 +20,7 @@
     overflow: auto;
 }
 .profile-side-panel{
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: #222;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     height: 750px;
@@ -32,39 +29,6 @@
     overflow: auto;
     margin-right: 5px;
 }
-
-/*
-.profile:hover::before {
-    opacity: 1;
-}
-
-.profile::before,
-.profile::after {
-    border-radius: inherit;
-    content: "";
-    height: 100%;
-    left: 0px;
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    transition: opacity 500ms;
-    width: 100%;
-}
-
-.profile::before {
-    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
-            rgba(255, 255, 255, 0.06),
-            transparent 40%);
-    z-index: 3;
-}
-
-.profile::after {
-    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
-            rgba(255, 255, 255, 0.4),
-            transparent 40%);
-    z-index: 1;
-}
-*/
 .profile>.profile-border {
     background-color: var(--profile-color);
     border-radius: inherit;

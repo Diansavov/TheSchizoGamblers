@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.VisualBasic;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using TheSchizoGamblers.Data;
@@ -28,6 +30,12 @@ namespace TheSchizoGamblers
                 options.Password.RequireNonAlphanumeric = false;
             });
 
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.Name = "GamblerCookie";
+                options.LoginPath = "/Gamblers/LogIn";
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -49,6 +57,8 @@ namespace TheSchizoGamblers
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
+            RolesSeed.Seed(app);
+            
             app.Run();
         }
     }
