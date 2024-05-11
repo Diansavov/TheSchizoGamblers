@@ -54,6 +54,8 @@ namespace TheSchizoGamblers
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
+            RolesSeed.Seed(app);
+            
             app.Run();
         }
     }

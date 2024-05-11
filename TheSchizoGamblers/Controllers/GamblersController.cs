@@ -35,12 +35,6 @@ namespace TheSchizoGamblers.Controllers
         [HttpPost]
         public async Task<IActionResult> Gamblers(GamblersViewModel addGamblerRequest)
         {
-            if (!await _roleManager.RoleExistsAsync("User"))
-            {
-                await _roleManager.CreateAsync(new IdentityRole("User"));
-                await _roleManager.CreateAsync(new IdentityRole("Admin"));
-            }
-
             if (ModelState.IsValid)
             {
 
