@@ -12,5 +12,6 @@ namespace TheSchizoGamblers.Data
         }
 
         public DbSet<GamblersModel> Gamblers { get; set; }
+        public DbSet<GamblerPictureModel> ProfilePictures { get; set; }
     }
 }

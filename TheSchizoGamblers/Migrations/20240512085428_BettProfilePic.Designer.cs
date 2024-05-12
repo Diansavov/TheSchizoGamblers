@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheSchizoGamblers.Data;
 
@@ -10,9 +11,11 @@ using TheSchizoGamblers.Data;
 namespace TheSchizoGamblers.Migrations
 {
     [DbContext(typeof(GamblersContext))]
-    partial class GamblersContextModelSnapshot : ModelSnapshot
+    [Migration("20240512085428_BettProfilePic")]
+    partial class BettProfilePic
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

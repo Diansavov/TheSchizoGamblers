@@ -10,7 +10,7 @@ namespace TheSchizoGamblers.Controllers
 {
     public class GamblersController : Controller
     {
-        private readonly GamblersContext gamblersContext;
+        private readonly GamblersContext _gamblersContext;
         private readonly UserManager<GamblersModel> _userManager;
         private readonly SignInManager<GamblersModel> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
@@ -20,7 +20,7 @@ namespace TheSchizoGamblers.Controllers
             SignInManager<GamblersModel> signInManager,
             RoleManager<IdentityRole> roleManager)
         {
-            this.gamblersContext = gamblersContext;
+            this._gamblersContext = gamblersContext;
             this._userManager = userManager;
             this._signInManager = signInManager;
             this._roleManager = roleManager;
@@ -44,28 +44,35 @@ namespace TheSchizoGamblers.Controllers
                     Email = addGamblerRequest.Email,
                     DateOfBirth = addGamblerRequest.DateOfBirth
                 };
-                
-                using (var memoryStream = new MemoryStream())  
-                {  
-                    await addGamblerRequest.ProfilePic.CopyToAsync(memoryStream);  
+
+                GamblerPictureModel pictureUser = new GamblerPictureModel()
+                {
+                    User = user
+                };
+
+                using (var memoryStream = new MemoryStream())
+                {
+                    await addGamblerRequest.ProfilePic.CopyToAsync(memoryStream);
 
                     // Upload the file if less than 2 MB  
-                    if (memoryStream.Length < 2097152)  
-                    {  
-                        user.PictureSource = memoryStream.ToArray();  
-                    }  
-                    else  
-                    {  
+                    if (memoryStream.Length < 2097152)
+                    {
+                        pictureUser.PictureSource = memoryStream.ToArray();
+                    }
+                    else
+                    {
                         TempData["Error"] = "The file is too large.";
-                    }  
-                }  
-                
+                    }
+                }
+
                 var result = await _userManager.CreateAsync(user, addGamblerRequest.Password);
 
                 if (result.Succeeded)
                 {
                     await _userManager.AddToRoleAsync(user, "User");
                     await _signInManager.SignInAsync(user, isPersistent: false);
+                    await _gamblersContext.AddAsync(pictureUser);
+                    await _gamblersContext.SaveChangesAsync();
 
                     return RedirectToAction("Index", "Home");
                 }
