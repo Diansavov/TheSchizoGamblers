@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using TheSchizoGamblers.Data;
+using TheSchizoGamblers.Migrations;
 using TheSchizoGamblers.Models;
 using TheSchizoGamblers.Models.ViewModels;
 
@@ -30,14 +31,17 @@ namespace TheSchizoGamblers.Controllers
         public async Task<IActionResult> Privacy()
         {
             GamblersModel user = await _userManager.FindByNameAsync(User.Identity.Name);
-
             GamblerPictureModel pictureUser = _contextManager.ProfilePictures.Where(u => u.User == user).FirstOrDefault();
-            
+            if (pictureUser == null)
+            {
+                ProfilePicViewModel profilePicTemp = new ProfilePicViewModel();
+                return View(profilePicTemp);
+            }
             ProfilePicViewModel profilePic = new ProfilePicViewModel(pictureUser.PictureSource);
 
             return View(profilePic);
         }
-        
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
