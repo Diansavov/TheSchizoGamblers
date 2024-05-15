@@ -46,7 +46,10 @@ img {
 .pic-image{
   width: 180px;
   height: 180px;
-  border: 1px solid rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 50%;
+}
+.pic-image img{
   border-radius: 50%;
 }
 

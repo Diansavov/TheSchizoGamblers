@@ -20,7 +20,7 @@
                     <a type="button" id="profileButton" data-bs-toggle="modal" data-bs-target="#profilePicModal">
                         <div class="pic-content">
                             <div class="pic-image">
-                                <img src="~/images/cardImages/Chip.png">
+                                <img id="real-profile-pic" src="~/images/cardImages/Chip.png">
                             </div>
                             <div class="pic-text text-center">
                                 Choose a profile picture
@@ -28,6 +28,7 @@
                         </div>
                     </a>
                 </div>
+            </div>
                 <!-- Modal -->
                 <div class="modal fade" id="profilePicModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
@@ -48,7 +49,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button id="crop-btn"type="button" class="btn btn-success" data-bs-dismiss="modal"
+                                    aria-label="Close">Save</button>
                             </div>
                         </div>
                     </div>
