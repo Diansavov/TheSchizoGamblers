@@ -4,35 +4,90 @@
     ViewData["Title"] = "Register";
 }
 
-<h1 style="text-align:center">Register</h1>
-<div class="formating">
-    <form asp-action="Gamblers" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="" class="form-label">Profile Picture</label>
-            <input type="file" class="form-control" asp-for="ProfilePic">
-            <span asp-validation-for="ProfilePic" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Username</label>
-            <input type="text" class="form-control" asp-for="Username">
-            <span asp-validation-for="Username" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Email</label>
-            <input type="email" class="form-control" asp-for="Email">
-            <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Password</label>
-            <input type="password" class="form-control" asp-for="Password">
-            <span asp-validation-for="Password" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Date Of Birth</label>
-            <input type="date" class="form-control" asp-for="DateOfBirth">
-            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
-        </div>
+<head>
+    <link rel="stylesheet" href="~/css/registerForm/register.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/node_modules/cropperjs/dist/cropper.css" asp-append-version="true" />
+</head>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+<body>
+    <h1 style="text-align:center">Register</h1>
+    <div class="formating">
+        <form asp-action="Gamblers" enctype="multipart/form-data">
+            <!--Profile Picture-->
+            <div class="mb-3 ">
+                <!-- Button trigger modal -->
+                <div class="center-btn">
+                    <a type="button" id="profileButton" data-bs-toggle="modal" data-bs-target="#profilePicModal">
+                        <div class="pic-content">
+                            <div class="pic-image">
+                                <img src="~/images/cardImages/Chip.png">
+                            </div>
+                            <div class="pic-text text-center">
+                                Choose a profile picture
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="profilePicModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!--Image Input-->
+                                <input id="pictureInput" type="file" class="form-control" asp-for="ProfilePic"
+                                    accept="image/png">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Profile Picture</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="image-modal-container">
+                                    <!--Image-->
+                                    <img id="imageCrop" src="#">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Rest of inputs-->
+                <div class="mb-3">
+                    <label for="" class="form-label">Username</label>
+                    <input type="text" class="form-control" asp-for="Username">
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Email</label>
+                    <input type="email" class="form-control" asp-for="Email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Password</label>
+                    <input type="password" class="form-control" asp-for="Password">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Date Of Birth</label>
+                    <input type="date" class="form-control" asp-for="DateOfBirth">
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <script src="~/lib/node_modules/cropperjs/dist/cropper.js"></script>
+    <script src="~/js/registerForm/registerCropper.js"></script>
+    <script>
+        const myModal = document.getElementById('myModal')
+        const myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', () => {
+            myInput.focus()
+        })
+
+    </script>
+</body>

@@ -1,9 +1,5 @@
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using Microsoft.VisualBasic;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using TheSchizoGamblers.Data;
 using TheSchizoGamblers.Models;
 
