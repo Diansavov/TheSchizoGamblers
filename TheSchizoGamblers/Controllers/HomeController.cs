@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using TheSchizoGamblers.Data;
-using TheSchizoGamblers.Migrations;
 using TheSchizoGamblers.Models;
 using TheSchizoGamblers.Models.ViewModels;
 

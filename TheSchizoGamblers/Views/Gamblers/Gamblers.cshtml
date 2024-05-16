@@ -29,56 +29,54 @@
                     </a>
                 </div>
             </div>
-                <!-- Modal -->
-                <div class="modal fade" id="profilePicModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <!--Image Input-->
-                                <input id="pictureInput" type="file" class="form-control" asp-for="ProfilePic"
-                                    accept="image/png">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Profile Picture</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+            <!-- Modal -->
+            <div class="modal fade" id="profilePicModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!--Image Input-->
+                            <input id="pictureInput" type="file" accept="image/png">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Profile Picture</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="image-modal-container">
+                                <!--Image-->
+                                <img id="imageCrop" src="#">
                             </div>
-                            <div class="modal-body">
-                                <div class="image-modal-container">
-                                    <!--Image-->
-                                    <img id="imageCrop" src="#">
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button id="crop-btn"type="button" class="btn btn-success" data-bs-dismiss="modal"
-                                    aria-label="Close">Save</button>
-                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="crop-btn" type="button" class="btn btn-success" data-bs-dismiss="modal"
+                                aria-label="Close">Save</button>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!--Rest of inputs-->
-                <div class="mb-3">
-                    <label for="" class="form-label">Username</label>
-                    <input type="text" class="form-control" asp-for="Username">
-                    <span asp-validation-for="Username" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Email</label>
-                    <input type="email" class="form-control" asp-for="Email">
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Password</label>
-                    <input type="password" class="form-control" asp-for="Password">
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Date Of Birth</label>
-                    <input type="date" class="form-control" asp-for="DateOfBirth">
-                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
-                </div>
+            <!--Rest of inputs-->
+            <div class="mb-3">
+                <label for="" class="form-label">Username</label>
+                <input type="text" class="form-control" asp-for="Username">
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Email</label>
+                <input type="email" class="form-control" asp-for="Email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Password</label>
+                <input type="password" class="form-control" asp-for="Password">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Date Of Birth</label>
+                <input type="date" class="form-control" asp-for="DateOfBirth">
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
     <script src="~/lib/node_modules/cropperjs/dist/cropper.js"></script>
