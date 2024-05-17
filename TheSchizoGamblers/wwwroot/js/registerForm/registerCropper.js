@@ -31,12 +31,22 @@ function handleFileUpload(event) {
     };
     reader.readAsDataURL(file);
 
+    // Display Cropped Image
     const cropButton = document.getElementById('crop-btn');
     cropButton.addEventListener('click', () => {
-      const croppedCanvas = cropper.getCroppedCanvas(); 
+      const croppedCanvas = cropper.getCroppedCanvas();
       if (croppedCanvas) {
         const croppedImage = croppedCanvas.toDataURL();
         document.getElementById('real-profile-pic').src = croppedImage;
+        croppedCanvas.toBlob((blob) => {
+          var formData = new FormData();
+          formData.append('ProfilePic', blob, 'croppedImage.png');
+
+          fetch('/Gamblers/Gamblers', {
+            method: 'POST',
+            body: formData
+          })
+        })
       }
     });
   }
