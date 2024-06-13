@@ -70,3 +70,9 @@ img {
 .pic-content:hover .pic-text{
   opacity: 1;
 }
+.formating {
+  max-width: 640px;
+  border-radius: 16px;
+  padding: 30px;
+  margin: 50px auto;
+}

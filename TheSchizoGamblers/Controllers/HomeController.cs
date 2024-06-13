@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using TheSchizoGamblers.Data;
@@ -26,6 +27,7 @@ namespace TheSchizoGamblers.Controllers
             return View();
         }
 
+        [Authorize]
         public async Task<IActionResult> Privacy()
         {
             GamblersModel user = await _userManager.FindByNameAsync(User.Identity.Name);

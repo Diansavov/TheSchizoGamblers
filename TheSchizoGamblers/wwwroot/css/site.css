@@ -26,11 +26,6 @@ html {
 
 body {
   margin-bottom: 60px;
+  
 }
 
-.formating {
-    max-width: 640px;
-    border-radius: 16px;
-    padding: 30px;
-    margin: 50px auto;
-}
