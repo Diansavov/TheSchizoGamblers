@@ -65,7 +65,7 @@ img {
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 15px;
 }
 .pic-content:hover .pic-text{
   opacity: 1;

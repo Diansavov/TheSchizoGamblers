@@ -84,3 +84,7 @@ input:focus~label {
     display: flex;
     justify-content: center;
 }
+
+.hidden-profile-pic{
+    display: none;
+}
