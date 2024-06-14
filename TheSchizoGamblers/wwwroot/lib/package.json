@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "cropperjs": "^1.6.2",
     "pjax": "^0.2.8"
   }
 }

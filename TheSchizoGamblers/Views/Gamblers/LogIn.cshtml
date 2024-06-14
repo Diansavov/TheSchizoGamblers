@@ -1,23 +1,35 @@
 ﻿@model TheSchizoGamblers.Models.ViewModels.LogInViewModel
 
-
 @{
     ViewData["Title"] = "LogIn";
 }
-<h1 style="text-align:center">Log In</h1>
-<div class="formating">
-    <form asp-action="LogIn">
-        <div class="mb-3">
-            <label for="" class="form-label">Username</label>
-            <input type="text" class="form-control" asp-for="Username">
-            <span asp-validation-for="Username" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">Password</label>
-            <input type="password" class="form-control" asp-for="Password">
-            <span asp-validation-for="Password" class="text-danger"></span>
-        </div>
+@section Styles {
+    <link rel="stylesheet" href="~/css/registerForm/logIn/logIn.css" asp-append-version="true" />
+}
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+<div class="form-container">
+    <div class="form-box">
+        <form asp-action="LogIn">
+            <h2 class="form-title">Log In</h2>
+            <div class="input-field">
+                <input id="loginInput" type="text" asp-for="Username">
+                <label id="loginLabel" class="form-label-login">Username</label>
+            </div>
+                <span asp-validation-for="Username" class="text-danger"></span>
+            <div class="input-field">
+                <input id="loginInput" type="password" asp-for="Password">
+                <label id="loginLabel" class="form-label-login">Password</label>
+            </div>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            <div class="submit-button">
+                <button type="submit" class="btn-submit">Log In</button>
+            </div>
+
+            <div class="register">
+                <p>Don't have a account? <a asp-controller="Gamblers" asp-action="Gamblers">Register</a></p>
+            </div>
+        </form>
+    </div>
 </div>
+
+<script src="~/js/registerForm/logIn/logInTextAnimation.js"></script>

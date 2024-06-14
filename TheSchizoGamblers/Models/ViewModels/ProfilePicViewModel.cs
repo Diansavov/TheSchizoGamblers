@@ -1,18 +1,18 @@
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.Processing;
+using System.Buffers.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace TheSchizoGamblers.Models.ViewModels
 {
     public class ProfilePicViewModel
     {
-        public Image ProfilePicture { get; set; }
-        public ProfilePicViewModel(byte[] picture)
+        public string ProfilePicture { get; set; }
+        public ProfilePicViewModel(byte[] imageBytes)
         {
-            Image image = Image.Load<Rgba32>(picture);
-            image.Mutate(x => x.Grayscale());
-
-            ProfilePicture = image;
+            ProfilePicture = Convert.ToBase64String(imageBytes);
+        }
+        public ProfilePicViewModel()
+        {
+            ProfilePicture = null;
         }
     }
 }

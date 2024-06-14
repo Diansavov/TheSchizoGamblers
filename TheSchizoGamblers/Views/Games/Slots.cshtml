@@ -5,37 +5,33 @@
     ViewData["Title"] = "Slots";
 }
 
-<head>
-    <link rel="stylesheet" href="~/css/slots.css" asp-append-version="true" />
-</head>
+@section Styles {
 
-<body>
-
-
-    <div class="slots-container">
-        <div class="slots-items">
-            @for (int i = 0; i < 3; i++)
+    <link rel="stylesheet" href="~/css/games/slots.css" asp-append-version="true" />
+}
+<div class="slots-container">
+    <div class="slots-items">
+        @for (int i = 0; i < 3; i++)
+        {
+            @for (int j = 0; j < 5; j++)
             {
-                @for (int j = 0; j < 5; j++)
-                {
-                    <div id="imagesContainer" class="slots-image no-js-Animation">
-                        <img id="slotsFigure" src="~/images/slotsImages/@(Model.SlotsArray[i, j]).png">
-                    </div>
-                }
+                <div id="imagesContainer" class="slots-image no-js-Animation">
+                    <img id="slotsFigure" src="~/images/slotsImages/@(Model.SlotsArray[i, j]).png">
+                </div>
             }
+        }
 
-        </div>
     </div>
-    <form id="slotForm" asp-action="Slots">
-        <div class="slots-button">
-            <button id="spinButton" class="btn btn-success" type="submit">Spin!</button>
-        </div>
-    </form>
-    <div class="text-center">
-        @Model.Money
+</div>
+<form id="slotForm" asp-action="Slots">
+    <div class="slots-button">
+        <button id="spinButton" class="btn btn-success" type="submit">Spin!</button>
     </div>
-    <div class="text-center">
-        @TempData["NoFunds"]
-    </div>
-    <script src="~/js/slotsSpin.js"></script>
-</body>
+</form>
+<div class="text-center">
+    @Model.Money
+</div>
+<div class="text-center">
+    @TempData["NoFunds"]
+</div>
+<script src="~/js/games/slots/slotsSpin.js"></script>

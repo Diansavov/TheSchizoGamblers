@@ -159,6 +159,25 @@ namespace TheSchizoGamblers.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("TheSchizoGamblers.Models.GamblerPictureModel", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<byte[]>("PictureSource")
+                        .HasColumnType("longblob");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ProfilePictures");
+                });
+
             modelBuilder.Entity("TheSchizoGamblers.Models.GamblersModel", b =>
                 {
                     b.Property<string>("Id")
@@ -206,9 +225,6 @@ namespace TheSchizoGamblers.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<byte[]>("PictureSource")
-                        .HasColumnType("longblob");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -282,6 +298,17 @@ namespace TheSchizoGamblers.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("TheSchizoGamblers.Models.GamblerPictureModel", b =>
+                {
+                    b.HasOne("TheSchizoGamblers.Models.GamblersModel", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

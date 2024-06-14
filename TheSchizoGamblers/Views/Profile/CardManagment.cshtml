@@ -2,13 +2,13 @@
     ViewData["Title"] = "User Profile";
 }
 
-<head>
+@section Styles {
     <link rel="stylesheet" href="~/css/profile/profile.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/profile/profileContent.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/profile/redirectCards.css" asp-append-version="true" />
-</head>
+}
 
-<body>
+
     <div id="profiles">
         <!--Side Panel-->
         <div class="profile-side-panel">
@@ -40,8 +40,8 @@
                     </div>
                 </li>
                 <li class="mb-1 w-100">
-                    <button class="btn btn-toggle collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#list-collapse3" aria-expanded="true">Transactions</button>
+                    <button class="btn btn-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#list-collapse3"
+                        aria-expanded="true">Transactions</button>
                     <div id="list-collapse3" class="collapse show">
                         <ul class="btn-toggle-nav">
                             <li class="sub-menu"><a class="btn sub-menu-btn js-Pjax" asp-controller="Profile"
@@ -94,4 +94,3 @@
     <script src="~/js/profile/profileArrowRotate.js"></script>
     <script src="~/lib/node_modules/pjax/pjax.js"></script>
     <script src="~/js/profile/profilePjax.js"></script>
-</body>
