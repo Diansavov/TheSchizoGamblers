@@ -1,9 +1,12 @@
 ﻿@model TheSchizoGamblers.Models.ViewModels.LogInViewModel
 
-
 @{
     ViewData["Title"] = "LogIn";
 }
+@section Styles {
+    <link rel="stylesheet" href="~/css/registerForm/logIn.css" asp-append-version="true" />
+}
+<!--
 <h1 style="text-align:center">Log In</h1>
 <div class="formating">
     <form asp-action="LogIn">
@@ -21,3 +24,56 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+<section>
+    <div class="form-box">
+        <div class="form-value">
+            <form action="">
+                <h2>Login</h2>
+                <div class="inputbox">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="email" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" required>
+                    <label for="">Password</label>
+                </div>
+                <div class="forget">
+                    <label for=""><input type="checkbox">Remember Me <a href="#">Forget Password</a></label>
+
+                </div>
+                <button>Log in</button>
+                <div class="register">
+                    <p>Don't have a account <a href="#">Register</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section> -->
+<div class="form-container">
+    <div class="form-box">
+        <form asp-action="LogIn">
+            <h2 class="form-title">Log In</h2>
+            <div class="input-field">
+                <input id="loginInput" type="text" asp-for="Username">
+                <label id="loginLabel" class="form-label-login">Username</label>
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="input-field">
+                <input id="loginInput" type="password" asp-for="Password">
+                <label id="loginLabel" class="form-label-login">Password</label>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="submit-button">
+                <button type="submit" class="btn-submit">Submit</button>
+            </div>
+
+            <div class="register">
+                <p>Don't have a account? <a asp-controller="Gamblers" asp-action="Gamblers">Register</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="~/js/registerForm/logInTextAnimation.js"></script>
