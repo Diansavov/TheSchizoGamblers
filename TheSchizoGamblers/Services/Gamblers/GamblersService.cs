@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using TheSchizoGamblers.Data;
 using TheSchizoGamblers.Models;
 using TheSchizoGamblers.Models.ViewModels;
@@ -38,7 +39,16 @@ namespace TheSchizoGamblers.Services.Gamblers
 
             using (var memoryStream = new MemoryStream())
             {
-                await registerRequest.ProfilePic.CopyToAsync(memoryStream);
+                if (registerRequest.ProfilePic == null)
+                {
+                    FileStream fileStream = new FileStream("wwwroot/images/cardImages/Chip.png", FileMode.Open);
+                    fileStream.CopyTo(memoryStream);
+                }
+                else
+                {
+                    await registerRequest.ProfilePic.CopyToAsync(memoryStream);
+
+                }
 
                 // Upload the file if less than 2 MB  
                 if (memoryStream.Length < 2097152)
