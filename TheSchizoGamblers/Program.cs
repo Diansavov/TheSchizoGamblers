@@ -7,6 +7,7 @@ namespace TheSchizoGamblers
 {
     public class Program
     {
+    //Praktika Stuff Yes
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
