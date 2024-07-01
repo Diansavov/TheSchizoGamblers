@@ -28,18 +28,9 @@ namespace TheSchizoGamblers.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> Privacy()
+        public IActionResult Privacy()
         {
-            GamblersModel user = await _userManager.FindByNameAsync(User.Identity.Name);
-            GamblerPictureModel pictureUser = _contextManager.ProfilePictures.Where(u => u.User == user).FirstOrDefault();
-            if (pictureUser == null)
-            {
-                ProfilePicViewModel profilePicTemp = new ProfilePicViewModel();
-                return View(profilePicTemp);
-            }
-            ProfilePicViewModel profilePic = new ProfilePicViewModel(pictureUser.PictureSource);
-
-            return View(profilePic);
+            return View();
         }
 
 

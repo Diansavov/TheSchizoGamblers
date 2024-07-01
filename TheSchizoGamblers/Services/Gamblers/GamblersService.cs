@@ -47,7 +47,6 @@ namespace TheSchizoGamblers.Services.Gamblers
                 else
                 {
                     await registerRequest.ProfilePic.CopyToAsync(memoryStream);
-
                 }
 
                 // Upload the file if less than 2 MB  
@@ -56,7 +55,6 @@ namespace TheSchizoGamblers.Services.Gamblers
                     pictureUser.PictureSource = memoryStream.ToArray();
                 }
             }
-
             var result = await _userManager.CreateAsync(user, registerRequest.Password);
 
             if (result.Succeeded)

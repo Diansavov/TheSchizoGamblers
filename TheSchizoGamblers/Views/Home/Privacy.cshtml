@@ -2,14 +2,8 @@
 
 @{
     ViewData["Title"] = "Privacy Policy";
+
 }
 <h1>@ViewData["Title"]</h1>
 
 <p>This is a testing page now.</p>
-
-@if(Model.ProfilePicture == null){
-    <p>You don't have a profile pic</p>
-}
-else{
-<img src="data:img/png;base64,@Model.ProfilePicture">
-}

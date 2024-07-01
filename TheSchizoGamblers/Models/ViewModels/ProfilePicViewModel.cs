@@ -10,9 +10,5 @@ namespace TheSchizoGamblers.Models.ViewModels
         {
             ProfilePicture = Convert.ToBase64String(imageBytes);
         }
-        public ProfilePicViewModel()
-        {
-            ProfilePicture = null;
-        }
     }
 }
