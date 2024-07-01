@@ -47,7 +47,6 @@ function displayCroppedImage() {
 }
 // Send to form cropped image
 function setInputFile() {
-    console.log('set the input for the file');
     const hiddenInput = document.getElementById('real-pic-input');
     let croppedCanvas = cropper.getCroppedCanvas();
 
@@ -57,7 +56,6 @@ function setInputFile() {
             const dataTransfer = new DataTransfer();
             dataTransfer.items.add(file);
             hiddenInput.files = dataTransfer.files;
-            console.log('Image uploaded');
         }, 'image/png');
     }
 }

@@ -4,9 +4,8 @@ namespace TheSchizoGamblers.Models.ViewModels
 {
     public class GamblersViewModel
     {
-        [Required(ErrorMessage = "Profile pic can't be empty")]
         [DataType(DataType.Upload)]
-        public IFormFile ProfilePic { get; set; }
+        public IFormFile? ProfilePic { get; set; }
 
         [Required(ErrorMessage = "Username can't be empty")]
         public string Username { get; set; }

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TheSchizoGamblers.Data;
 using TheSchizoGamblers.Models;
+using TheSchizoGamblers.Services.Gamblers;
 
 namespace TheSchizoGamblers
 {
@@ -32,6 +33,8 @@ namespace TheSchizoGamblers
                 options.Cookie.Name = "GamblerCookie";
                 options.LoginPath = "/Gamblers/LogIn";
             });
+
+            builder.Services.AddScoped<IGamblersService, GamblersService>();
 
             var app = builder.Build();
 
