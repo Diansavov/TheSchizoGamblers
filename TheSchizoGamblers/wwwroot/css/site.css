@@ -28,3 +28,10 @@ body {
   margin-bottom: 60px;
   
 }
+
+.user-profile-pic{
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+}

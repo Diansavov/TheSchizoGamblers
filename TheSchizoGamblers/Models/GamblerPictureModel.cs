@@ -4,7 +4,6 @@ namespace TheSchizoGamblers.Models
 {
     public class GamblerPictureModel
     {
-
         public GamblerPictureModel()
         {
             Id = Guid.NewGuid().ToString();

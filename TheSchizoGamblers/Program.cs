@@ -33,6 +33,8 @@ namespace TheSchizoGamblers
                 options.Cookie.Name = "GamblerCookie";
                 options.LoginPath = "/Gamblers/LogIn";
             });
+            
+            builder.Services.AddTransient<IUserProfilePicService, UserProfilePicService>();
 
             builder.Services.AddScoped<IGamblersService, GamblersService>();
 
